@@ -4,8 +4,8 @@
 PUID=${PUID:-911}
 PGID=${PGID:-911}
 
-groupmod -o -g "$PGID" abc
-usermod -o -u "$PUID" abc
+groupmod -o -g "$PGID" nexus
+usermod -o -u "$PUID" nexus
 
 cat /etc/s6-overlay/s6-rc.d/init-adduser/branding
 
@@ -22,11 +22,11 @@ https://www.linuxserver.io/donate/
 GID/UID
 ───────────────────────────────────────'
 echo "
-User UID:    $(id -u abc)
-User GID:    $(id -g abc)
+User UID:    $(id -u nexus)
+User GID:    $(id -g nexus)
 ───────────────────────────────────────
 "
 
-lsiown abc:abc /app
-lsiown abc:abc /config
-lsiown abc:abc /defaults
+lsiown nexus:nexus /app
+lsiown nexus:nexus /config
+lsiown nexus:nexus /defaults
