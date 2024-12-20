@@ -5,8 +5,8 @@ PUID=${PUID:-911}
 PGID=${PGID:-911}
 
 if [[ -z ${LSIO_READ_ONLY_FS} ]] && [[ -z ${LSIO_NON_ROOT_USER} ]]; then
-    groupmod -o -g "$PGID" abc
-    usermod -o -u "$PUID" abc
+    groupmod -o -g "$PGID" nexus
+    usermod -o -u "$PUID" nexus
 fi
 
 if { [[ -z ${LSIO_READ_ONLY_FS} ]] && [[ -z ${LSIO_NON_ROOT_USER} ]]; } || [[ ! ${LSIO_FIRST_PARTY} = "true" ]]; then
@@ -29,8 +29,8 @@ GID/UID
 ───────────────────────────────────────'
 if [[ -z ${LSIO_NON_ROOT_USER} ]]; then
 echo "
-User UID:    $(id -u abc)
-User GID:    $(id -g abc)
+User UID:    $(id -u nexus)
+User GID:    $(id -g nexus)
 ───────────────────────────────────────"
 else
 echo "
@@ -46,7 +46,7 @@ if [[ -f /build_version ]]; then
 fi
 
 if [[ -z ${LSIO_READ_ONLY_FS} ]] && [[ -z ${LSIO_NON_ROOT_USER} ]]; then
-    lsiown abc:abc /app
-    lsiown abc:abc /config
-    lsiown abc:abc /defaults
+    lsiown nexus:nexus /nexus
+    lsiown nexus:nexus /config
+    lsiown nexus:nexus /defaults
 fi
